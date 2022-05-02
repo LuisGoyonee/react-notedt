@@ -15,18 +15,21 @@ const Topnav = () => {
               <p>Current Balance</p>
             </div>
             <div id="currency">
-              <FaWallet />
+              <FaWallet size={22} />
             </div>
           </div>
-          <div class="addTransactions">
-            <div class="icon">
-              <BsSearch />
+          <div class="features">
+            <div class="iconsContainer">
+              <div class="icon">
+                <BsSearch size={22} />
+              </div>
+              <div class="icon">
+                <GoSettings size={22} />
+              </div>
             </div>
-            <div class="icon">
-              <GoSettings />
-            </div>
-            <div class="icon">
-              <Button />
+
+            <div class="button">
+              <Button onClick />
             </div>
           </div>
         </div>

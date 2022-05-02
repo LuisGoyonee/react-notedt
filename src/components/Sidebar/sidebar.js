@@ -29,7 +29,7 @@ const Sidebar = () => {
                   />
                 </Link>
               </div>
-              <div class="sideBarLinks uppercase text-lg">
+              <div class="sideBarLinks uppercase text-base">
                 <Link to="/transactions" class="pt-8 navLink">
                   <BsArrowLeftRight size={40} />
                   <p class="sideText">Transactions</p>

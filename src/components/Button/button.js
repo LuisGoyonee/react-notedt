@@ -7,9 +7,9 @@ const Button = () => {
     <>
       <button>
         <div class="mainContainer">
-          <div class="buttonContainer">
-            <div class="uppercase">Add Transaction</div>
-            <FiPlus class="" />
+          <div class="buttonContainer py-2 px-3">
+            <div class="uppercase addTransaction">Add Transaction</div>
+            <FiPlus class="btn" size={18} />
           </div>
         </div>
       </button>
