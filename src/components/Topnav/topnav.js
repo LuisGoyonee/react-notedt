@@ -1,39 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import "./topnav.css";
 import { FaWallet } from "react-icons/fa";
 import { BsSearch } from "react-icons/bs";
 import { GoSettings } from "react-icons/go";
 import Button from "../Button/button";
+import TransactionModal from "../Modal/transaction-modal";
 
 const Topnav = () => {
+  const [openModal, setOpenModal] = useState(false);
   return (
     <>
-      <div class="topNavWrapper">
-        <div class="topNav">
-          <div class="balance">
+      <div className="topNavWrapper">
+        <div className="topNav">
+          <div className="balance">
             <div id="current">
               <p>Current Balance</p>
             </div>
             <div id="currency">
-              <FaWallet size={22} />
+              <FaWallet size={22} className="wallet" />
+              <p id="amount">PHP{}</p>
             </div>
           </div>
-          <div class="features">
-            <div class="iconsContainer">
-              <div class="icon">
+          <div className="features">
+            <div className="iconsContainer">
+              <div className="icon">
                 <BsSearch size={22} />
               </div>
-              <div class="icon">
+              <div className="icon">
                 <GoSettings size={22} />
               </div>
             </div>
 
-            <div class="button">
-              <Button onClick />
+            <div className="button">
+              <Button
+                icon={true}
+                text="Add Transaction"
+                onClick={() => setOpenModal(true)}
+              />
             </div>
           </div>
         </div>
       </div>
+      {openModal && <TransactionModal close={setOpenModal} open={openModal} />}
     </>
   );
 };

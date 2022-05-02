@@ -32,6 +32,7 @@
 }
 
 .navLink{
+  font-size: 18px;
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
@@ -44,21 +45,10 @@
 }
 
 .navLink.active{
-  color:#00766C;
-}
-
-.navLink:hover{
   font-weight: 700;
   color:#00766C;
 }
 
-.mainContainer{
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-}
-
-.contents{
-  width: 100vw;
-  height: 100vh;
+.navLink:hover{
+  color:#00766C;
 }

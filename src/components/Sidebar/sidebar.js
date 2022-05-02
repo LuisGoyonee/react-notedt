@@ -1,5 +1,11 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  NavLink,
+} from "react-router-dom";
 import Transactions from "../../pages/Transactions/transactions";
 import Categories from "../../pages/Categories/categories";
 import Overview from "../../pages/Overview/overview";
@@ -8,50 +14,67 @@ import { FaTags } from "react-icons/fa";
 import { AiFillPieChart } from "react-icons/ai";
 import logo from "../../images/Logo.png";
 import "./sidebar.css";
-import Topnav from "../Topnav/topnav";
 
 const Sidebar = () => {
-  const [activeTab, setActiveTab] = useState(false);
+  const [activeTab, setActiveTab] = useState("Transactions");
+  const tabs = [
+    {
+      tabName: "Transactions",
+      pathName: "/",
+      icon: <BsArrowLeftRight size={40} />,
+    },
+    {
+      tabName: "Cateogries",
+      pathName: "/categories",
+      icon: <FaTags size={40} />,
+    },
+    {
+      tabName: "Overview",
+      pathName: "/overview",
+      icon: <AiFillPieChart size={40} />,
+    },
+  ];
+
+  const onClick = (tab) => () => {
+    setActiveTab(tab);
+  };
+  useEffect(() => {}, [activeTab]);
+
   return (
     <>
       <Router>
-        <div class="mainContainer">
-          <div class="sideBarWrapper">
-            <div class="sideBar">
-              <div class="sideBarLogo">
-                <Link to="/transactions">
-                  <img
-                    src={logo}
-                    alt="logo"
-                    className="logo cursor-pointer"
-                    width="40"
-                    height="32"
-                  />
-                </Link>
-              </div>
-              <div class="sideBarLinks uppercase text-base">
-                <Link to="/transactions" class="pt-8 navLink">
-                  <BsArrowLeftRight size={40} />
-                  <p class="sideText">Transactions</p>
-                </Link>
-                <Link to="/categories" class="pt-8 navLink">
-                  <FaTags size={40} />
-                  <p class="sideText">Categories</p>
-                </Link>
-                <Link to="/overview" class="pt-8 navLink">
-                  <AiFillPieChart size={40} />
-                  <p class="sideText">Overview</p>
-                </Link>
-              </div>
+        <div className="sideBarWrapper">
+          <div className="sideBar">
+            <div className="sideBarLogo">
+              <Link to="/">
+                <img
+                  src={logo}
+                  alt="logo"
+                  className="logo cursor-pointer"
+                  width="40"
+                  height="32"
+                />
+              </Link>
             </div>
-          </div>
-          <div class="contents">
-            <Topnav />
+            <div className="sideBarLinks uppercase text-base">
+              {tabs.map(({ tabName, pathName, icon }) => (
+                <NavLink
+                  className="pt-8 navLink"
+                  to={pathName}
+                  key={tabName}
+                  activeClassName="active"
+                  onClick={onClick(tabName)}
+                >
+                  {icon}
+                  {tabName}
+                </NavLink>
+              ))}
+            </div>
           </div>
         </div>
 
         <Routes>
-          <Route path="/transactions" element={<Transactions />} />
+          <Route path="/" element={<Transactions />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/overview" element={<Overview />} />
         </Routes>
