@@ -1,7 +1,14 @@
-import AddTransactionForm from "../Form/addTransactionForm";
+import { useForm } from "react-hook-form";
 import "./transaction-modal.css";
 
-const TransactionModal = ({ close, open }) => {
+const TransactionModal = ({ close }) => {
+  const { register, handleSubmit, reset } = useForm();
+
+  const onSubmit = (data) => {
+    handleSubmit(data);
+    reset();
+    console.log(data);
+  };
   return (
     <>
       <div className="modalContainer">
@@ -28,7 +35,46 @@ const TransactionModal = ({ close, open }) => {
                   <li>Rentals</li>
                 </div>
               </div>
-              <AddTransactionForm className="form" />
+              <form className="form">
+                <div className="formGroup">
+                  <select
+                    className="w-full rounded-md input"
+                    {...register("transactionType")}
+                  >
+                    <option id="income">Income</option>
+                    <option id="expense">Expense</option>
+                  </select>
+                </div>
+                <div className="formGroup">
+                  <label>Amount</label>
+                  <input
+                    className="w-full rounded-md input"
+                    type="text"
+                    placeholder="PHP 0.00"
+                    id="amount"
+                    {...register("amount")}
+                  ></input>
+                </div>
+                <div className="formGroup">
+                  <label>Date</label>
+                  <input
+                    className="w-full rounded-md input"
+                    type="date"
+                    placeholder="MM/DD/YYYY"
+                    {...register("date")}
+                    id="date"
+                  ></input>
+                </div>
+                <div className="formGroup">
+                  <label>Description (optional)</label>
+                  <textarea
+                    className="w-full rounded-md input"
+                    placeholder="description"
+                    {...register("description")}
+                    id="description"
+                  ></textarea>
+                </div>
+              </form>
             </div>
             <div className="modalFooter">
               <button
@@ -38,7 +84,12 @@ const TransactionModal = ({ close, open }) => {
               >
                 Cancel
               </button>
-              <button type="button" className="btn save" onClick>
+              <button
+                type="submit"
+                className="btn save"
+                value="Submit"
+                onClick={handleSubmit(onSubmit)}
+              >
                 Save
               </button>
             </div>
