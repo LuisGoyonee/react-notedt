@@ -38,7 +38,7 @@ const TransactionModal = ({ close, open }) => {
               >
                 Cancel
               </button>
-              <button type="button" className="btn save">
+              <button type="button" className="btn save" onClick>
                 Save
               </button>
             </div>
