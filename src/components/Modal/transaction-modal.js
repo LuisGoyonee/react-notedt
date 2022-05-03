@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import "./transaction-modal.css";
+import { store } from "../../scripts/local-storage";
 
 const TransactionModal = ({ close }) => {
   const { register, handleSubmit, reset } = useForm();
@@ -8,6 +9,7 @@ const TransactionModal = ({ close }) => {
     handleSubmit(data);
     reset();
     console.log(data);
+    store(data);
   };
   return (
     <>
