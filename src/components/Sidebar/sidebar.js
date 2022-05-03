@@ -7,33 +7,13 @@ import {
   NavLink,
 } from "react-router-dom";
 import Transactions from "../../pages/Transactions/transactions";
-import Categories from "../../pages/Categories/categories";
 import Overview from "../../pages/Overview/overview";
-import { BsArrowLeftRight } from "react-icons/bs";
-import { FaTags } from "react-icons/fa";
-import { AiFillPieChart } from "react-icons/ai";
+import { Tabs } from "../../constants/tabs";
 import logo from "../../images/Logo.png";
 import "./sidebar.css";
 
 const Sidebar = () => {
   const [activeTab, setActiveTab] = useState("Transactions");
-  const tabs = [
-    {
-      tabName: "Transactions",
-      pathName: "/",
-      icon: <BsArrowLeftRight size={40} />,
-    },
-    {
-      tabName: "Cateogries",
-      pathName: "/categories",
-      icon: <FaTags size={40} />,
-    },
-    {
-      tabName: "Overview",
-      pathName: "/overview",
-      icon: <AiFillPieChart size={40} />,
-    },
-  ];
 
   const onClick = (tab) => () => {
     setActiveTab(tab);
@@ -57,7 +37,7 @@ const Sidebar = () => {
               </Link>
             </div>
             <div className="sideBarLinks uppercase text-base">
-              {tabs.map(({ tabName, pathName, icon }) => (
+              {Tabs.map(({ tabName, pathName, icon }) => (
                 <NavLink
                   className="pt-8 navLink"
                   to={pathName}
@@ -75,7 +55,6 @@ const Sidebar = () => {
 
         <Routes>
           <Route path="/" element={<Transactions />} />
-          <Route path="/categories" element={<Categories />} />
           <Route path="/overview" element={<Overview />} />
         </Routes>
       </Router>

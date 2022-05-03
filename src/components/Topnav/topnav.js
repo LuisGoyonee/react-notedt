@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./topnav.css";
-import { FaWallet } from "react-icons/fa";
 import { BsSearch } from "react-icons/bs";
-import { GoSettings } from "react-icons/go";
 import Button from "../Button/button";
+import { AiOutlineEye } from "react-icons/ai";
+import { HiOutlineCurrencyDollar } from "react-icons/hi";
 import TransactionModal from "../Modal/transaction-modal";
 
 const Topnav = () => {
@@ -14,10 +14,10 @@ const Topnav = () => {
         <div className="topNav">
           <div className="balance">
             <div id="current">
-              <p>Current Balance</p>
+              <p className="tracking-wide">Savings</p>
             </div>
             <div id="currency">
-              <FaWallet size={22} className="wallet" />
+              <HiOutlineCurrencyDollar size={22} className="wallet" />
               <p id="amount">PHP{}</p>
             </div>
           </div>
@@ -26,14 +26,13 @@ const Topnav = () => {
               <div className="icon">
                 <BsSearch size={22} />
               </div>
-              <div className="icon">
-                <GoSettings size={22} />
+              <div className="icon eye">
+                <AiOutlineEye size={30} />
               </div>
             </div>
 
             <div className="button">
               <Button
-                icon={true}
                 text="Add Transaction"
                 onClick={() => setOpenModal(true)}
               />
