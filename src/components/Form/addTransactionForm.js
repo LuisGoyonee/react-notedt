@@ -12,8 +12,8 @@ const AddTransactionForm = () => {
           required
           className="select input"
         >
-          <option className="option">Income</option>
-          <option className="option">Expense</option>
+          <option className="option" id="income">Income</option>
+          <option className="option" id="expense">Expense</option>
         </Form.Select>
       </Form.Group>
       <Form.Group className="formGroup">
@@ -32,6 +32,7 @@ const AddTransactionForm = () => {
           placeholder="php 0.00"
           required
           className="input"
+          id="amount"
         />
       </Form.Group>
       <Form.Group className="formGroup">
@@ -41,6 +42,7 @@ const AddTransactionForm = () => {
           placeholder="DESCRIPTION"
           required
           className="input"
+          id="description"
         />
       </Form.Group>
     </Form>
