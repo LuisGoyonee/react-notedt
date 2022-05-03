@@ -58,9 +58,9 @@ const TransactionModal = ({ close }) => {
                 <div className="formGroup">
                   <label>Date</label>
                   <input
-                    className="w-full rounded-md input"
+                    className="w-full rounded-md input uppercase"
                     type="date"
-                    placeholder="MM/DD/YYYY"
+                    placeholder="mm/dd/yyyy"
                     {...register("date")}
                     id="date"
                   ></input>
@@ -79,14 +79,14 @@ const TransactionModal = ({ close }) => {
             <div className="modalFooter">
               <button
                 type="button"
-                className="btn cancel"
+                className="btn cancel modalButton"
                 onClick={() => close(false)}
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="btn save"
+                className="btn save modalButton"
                 value="Submit"
                 onClick={handleSubmit(onSubmit)}
               >

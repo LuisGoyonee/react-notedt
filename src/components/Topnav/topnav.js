@@ -18,7 +18,7 @@ const Topnav = () => {
             </div>
             <div id="currency">
               <HiOutlineCurrencyDollar size={22} className="wallet" />
-              <p id="amount">PHP{}</p>
+              <p id="savings">PHP{}</p>
             </div>
           </div>
           <div className="features">
