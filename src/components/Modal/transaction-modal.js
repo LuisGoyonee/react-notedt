@@ -6,13 +6,7 @@ import { useState } from "react";
 import { Expense, Income } from "../../constants/catagories";
 
 const TransactionModal = ({ close }) => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    setError,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const [formState, setFormState] = useState({
     transactionType: null,
@@ -30,13 +24,12 @@ const TransactionModal = ({ close }) => {
     });
   };
 
-  console.log(formState);
-
   const onSubmit = (data) => {
     handleSubmit(data);
+    store(data);
+    console.log(data);
     reset();
     close();
-    store(data);
   };
 
   return (
@@ -147,9 +140,7 @@ const TransactionModal = ({ close }) => {
                 type="submit"
                 className="btn save modalButton"
                 value="Submit"
-                onClick={() => {
-                  handleSubmit(onSubmit);
-                }}
+                onClick={handleSubmit(onSubmit)}
               >
                 Save
               </button>
