@@ -2,15 +2,34 @@ import { useForm } from "react-hook-form";
 import "./transaction-modal.css";
 import { store } from "../../scripts/local-storage";
 import moment from "moment";
+import { useState } from "react";
+import { Expense, Income } from "../../constants/catagories";
 
 const TransactionModal = ({ close }) => {
   const { register, handleSubmit, reset } = useForm();
 
+  const [formState, setFormState] = useState({
+    transactionType: null,
+    category: "",
+    amount: "",
+    date: moment().startOf("day").format("YYYY-MM-DD"),
+    description: "",
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
   const onSubmit = (data) => {
     handleSubmit(data);
+    store(data);
+    console.log(data);
     reset();
     close();
-    store(data);
   };
 
   return (
@@ -28,9 +47,16 @@ const TransactionModal = ({ close }) => {
                     <select
                       class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded-md  transition ease-in-out m-0 focus:outline-none input"
                       {...register("transactionType")}
+                      onClick={handleInputChange}
+                      placeholder={formState.transactionType}
                     >
-                      <option id="income"> Income</option>
-                      <option id="expense">Expense</option>
+                      <option value="Income" id="income">
+                        {" "}
+                        Income
+                      </option>
+                      <option value="Expense" id="expense">
+                        Expense
+                      </option>
                     </select>
                   </div>
                 </div>
@@ -41,10 +67,28 @@ const TransactionModal = ({ close }) => {
                       <select
                         class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded-md  transition ease-in-out m-0 focus:outline-none input"
                         {...register("category")}
+                        onClick={handleInputChange}
+                        placeholder={formState.category}
+                        disabled={formState.transactionType === null}
                       >
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        {formState.transactionType === "Income"
+                          ? Income.map((item) => {
+                              return <option value={item}>{item}</option>;
+                            })
+                          : Expense.map((item) => {
+                              const { category, subCategory } = item;
+                              return (
+                                <>
+                                  <optgroup label={category}>
+                                    {subCategory.map((item) => {
+                                      return (
+                                        <option value={item}>{item}</option>
+                                      );
+                                    })}
+                                  </optgroup>
+                                </>
+                              );
+                            })}
                       </select>
                     </div>
                   </div>
@@ -55,8 +99,9 @@ const TransactionModal = ({ close }) => {
                     className="w-full rounded-md input uppercase focus:outline-none"
                     type="date"
                     id="date"
-                    value={moment().startOf("day").format("YYYY-MM-DD")}
+                    value={formState.date}
                     {...register("date")}
+                    onChange={handleInputChange}
                   ></input>
                 </div>
 
@@ -64,10 +109,11 @@ const TransactionModal = ({ close }) => {
                   <label>Amount</label>
                   <input
                     className="w-full rounded-md input focus:outline-none"
-                    type="text"
+                    type="number"
                     placeholder="PHP 0.00"
                     id="amount"
                     {...register("amount")}
+                    onChange={handleInputChange}
                   ></input>
                 </div>
                 <div className="formGroup">
@@ -76,6 +122,7 @@ const TransactionModal = ({ close }) => {
                     className="w-full rounded-md input focus:outline-none"
                     placeholder="description"
                     {...register("description")}
+                    onChange={handleInputChange}
                     id="description"
                   ></textarea>
                 </div>

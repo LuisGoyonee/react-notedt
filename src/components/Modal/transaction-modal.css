@@ -67,29 +67,6 @@
   text-transform: uppercase;
   
 }
-#textCategories{
-  padding: 9px 0 10px 0;
-  font-size: 18px;
-  line-height: 27px;
-  color: #454545
-  
-}
-#textExpenses{
-  padding: 10px 0 9px 0;
-  color:#00766C;
-  font-weight: 600;
-  font-size: 15px;
-}
-
-.expenses{
-  color: #454545;
-  margin-left: 10px;
-}
-
-.expenses li{
-  padding: 9px 0;
-  font-size: 15px;
-}
 
 .form{
   margin: 0 10px;
@@ -103,6 +80,7 @@
   justify-content: flex-end;
   align-items: center;
   margin-top: 30px;
+  padding-right: 10px;
 }
 
 .btn{
@@ -128,7 +106,6 @@
   width: 100%;
   padding: 10px 8px;
   border: 1px solid #9EA7AA;
-  color: #9EA7AA;
 }
 
 .formGroup input  {
@@ -140,26 +117,21 @@
   padding: 10px 13px;
   margin-bottom: 10px;
   font-size: 14px;
-  color: #9EA7AA;
   border-color: #9EA7AA;
 }
 
+.formGroup input::placeholder{
+  color: #9EA7AA;
+}
 .formGroup textarea{
-  text-transform: uppercase;
   margin-bottom: 9px;
   width: 100%;
   padding: 10px 13px;
   border: 1px solid #9EA7AA;
-  color: #9EA7AA;
   height: 132px;
 }
 .formGroup select:focus {
   box-shadow: 0 0 0 1px black;
-  color: black;
-}
-
-.formGroup select:visited {
-  color: black;
 }
 
 .formGroup input:focus, textarea:focus {
@@ -168,9 +140,13 @@
   color: black;
 }
 
+.formGroup textarea::placeholder{
+  text-transform: uppercase;
+}
+
 label{
   font-size: 12px;
-  color:#D3D3D3;
+  color:#454545;
   line-height: 18px;
   letter-spacing: 0.5px;
 }
@@ -184,4 +160,14 @@ label{
 .save:hover{
   background-color: #26A69A;
   transition: 0.3s ease-in-out; 
+}
+
+
+optgroup {
+  color: #00766C;
+}
+
+option{
+  margin-top: 1rem;
+  color: black
 }
