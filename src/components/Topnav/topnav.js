@@ -6,8 +6,7 @@ import { AiOutlineEye } from "react-icons/ai";
 import { HiOutlineCurrencyDollar } from "react-icons/hi";
 import TransactionModal from "../Modal/transaction-modal";
 
-const Topnav = () => {
-  const [openModal, setOpenModal] = useState(false);
+const Topnav = ({ openModal, setOpenModal }) => {
   return (
     <>
       <div className="topNavWrapper">
@@ -40,7 +39,6 @@ const Topnav = () => {
           </div>
         </div>
       </div>
-      {openModal && <TransactionModal close={setOpenModal} open={openModal} />}
     </>
   );
 };

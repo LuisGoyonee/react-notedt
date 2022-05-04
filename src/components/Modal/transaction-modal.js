@@ -4,10 +4,10 @@ import { store } from "../../scripts/local-storage";
 
 const TransactionModal = ({ close }) => {
   const { register, handleSubmit, reset } = useForm();
-
   const onSubmit = (data) => {
     handleSubmit(data);
     reset();
+    close();
     store(data);
   };
   return (
