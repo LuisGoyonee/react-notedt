@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./toast.css";
 
 const Toast = ({ position, title, description, icon, color }) => {

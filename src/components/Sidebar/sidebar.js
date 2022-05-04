@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from "react";
-
-import Transactions from "../../pages/Transactions/transactions";
-import Overview from "../../pages/Overview/overview";
 import { Tabs } from "../../constants/tabs";
 import logo from "../../images/Logo.png";
 import "./sidebar.css";
