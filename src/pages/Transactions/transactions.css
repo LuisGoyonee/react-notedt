@@ -9,17 +9,17 @@
 }
 
 .noTransactionsVector {
-    position: static;
-    width: 663px;
-    height: 442px;
-    left: 0px;
-    top: 0px;
+    width: 600px;
+    height: 400px;
+    z-index: -11;
+    /* left: 0px; */
+    /* top: 0px; */
     opacity: 0.5;
     /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    margin: 10px 0px;
+    /* flex: none; */
+    /* order: 0; */
+    /* flex-grow: 0; */
+    /* margin: 10px 0px; */
 }
 
 .noTransactions {
