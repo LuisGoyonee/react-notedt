@@ -31,8 +31,8 @@ const Sidebar = () => {
                   src={logo}
                   alt="logo"
                   className="logo cursor-pointer"
-                  width="40"
-                  height="32"
+                  width="60"
+                  height="52"
                 />
               </Link>
             </div>

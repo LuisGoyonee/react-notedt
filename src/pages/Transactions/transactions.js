@@ -1,4 +1,5 @@
 import React from "react";
+import "./transactions.css";
 
 const Transactions = () => {
   let keys = Object.keys(localStorage);
