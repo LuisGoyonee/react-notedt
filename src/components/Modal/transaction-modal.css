@@ -9,8 +9,8 @@
 }
 
 .modal{
-  width: 593px;
-  height: 487px;
+  width: 570px;
+  height: 672px;
   border-radius: 5px;
   background-color: white;
   box-shadow: 0px 4px 4px rgba(0, 118, 108, 0.2);
@@ -47,9 +47,6 @@
 }
 
 .modalBody{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
   margin-top: 18px;
 }
 
@@ -95,7 +92,7 @@
 }
 
 .form{
-  margin-left: 1rem;
+  margin: 0 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -105,8 +102,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-top: 20px;
-  
+  margin-top: 30px;
 }
 
 .btn{
@@ -126,48 +122,50 @@
   border-radius: 5px;
 }
 
-option{
-  color:black;
-  padding: 10rem;
+.formGroup select{
+  text-transform: uppercase;
+  margin-bottom: 9px;
+  width: 100%;
+  padding: 10px 8px;
+  border: 1px solid #9EA7AA;
+  color: #9EA7AA;
 }
 
-.input{
-  
+.formGroup input  {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid white;
+  padding: 10px 13px;
+  margin-bottom: 10px;
+  font-size: 14px;
   color: #9EA7AA;
   border-color: #9EA7AA;
 }
-select:focus{
-  border-color: #00766C;
-  --tw-ring-shadow: 0 0 0 1px #00766C;
-  --tw-ring-color: #00766C;
-}
 
-select{
+.formGroup textarea{
   text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
-[type='text']:focus{
-  border-color: #00766C;
-  --tw-ring-shadow: 0 0 0 1px #00766C;
-  --tw-ring-color: #00766C;
-}
-
-[type='date']:focus{
-  border-color: #00766C;
-  --tw-ring-shadow: 0 0 0 1px #00766C;
-  --tw-ring-color: #00766C;
-}
-
-textarea:focus{
-  border-color: #00766C;
-  --tw-ring-shadow: 0 0 0 1px #00766C;
-  --tw-ring-color: #00766C;
-}
-.input::placeholder{
-  text-transform: uppercase;
+  margin-bottom: 9px;
+  width: 100%;
+  padding: 10px 13px;
+  border: 1px solid #9EA7AA;
   color: #9EA7AA;
-  font-size: 15px;
+  height: 132px;
+}
+.formGroup select:focus {
+  box-shadow: 0 0 0 1px black;
+  color: black;
+}
+
+.formGroup select:visited {
+  color: black;
+}
+
+.formGroup input:focus, textarea:focus {
+  box-shadow: 0 0 0 1px black;
+  transition: 0.1s ease-in-out;
+  color: black;
 }
 
 label{
@@ -176,16 +174,7 @@ label{
   line-height: 18px;
   letter-spacing: 0.5px;
 }
-input {
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  border-radius: 4px;
-  border: 1px solid white;
-  padding: 10px 15px;
-  margin-bottom: 10px;
-  font-size: 14px;
-}
+
 
 .cancel:hover{
   color: #26A69A;

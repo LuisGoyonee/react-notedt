@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 import "./transaction-modal.css";
 import { store } from "../../scripts/local-storage";
+import { DateToday } from "../../constants/date";
+import moment from "moment";
 
 const TransactionModal = ({ close }) => {
   const { register, handleSubmit, reset } = useForm();
@@ -10,6 +12,7 @@ const TransactionModal = ({ close }) => {
     close();
     store(data);
   };
+  console.log(DateToday);
   return (
     <>
       <div className="modalContainer">
@@ -19,37 +22,49 @@ const TransactionModal = ({ close }) => {
               <p className="title">Add Transaction</p>
             </div>
             <div className="modalBody">
-              <div className="categories">
-                <div className="subTitle">
-                  <p id="textCategories">Categories</p>
-                </div>
-                <div className="heading font-medium">
-                  <p id="textExpenses" className="font-medium">
-                    Essential Expenses
-                  </p>
-                </div>
-                <div className="expenses">
-                  <li>Electricity Bill</li>
-                  <li>Water Bill</li>
-                  <li>Phone Bill</li>
-                  <li>Internet Bill</li>
-                  <li>Rentals</li>
-                </div>
-              </div>
               <form className="form">
                 <div className="formGroup">
-                  <select
-                    className="w-full rounded-md input"
-                    {...register("transactionType")}
-                  >
-                    <option id="income">Income</option>
-                    <option id="expense">Expense</option>
-                  </select>
+                  <div class="w-full">
+                    <select
+                      class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded-md  transition ease-in-out m-0 focus:outline-none input"
+                      {...register("transactionType")}
+                    >
+                      <option id="income"> Income</option>
+                      <option id="expense">Expense</option>
+                    </select>
+                  </div>
                 </div>
+                <div className="formGroup">
+                  <label>Category</label>
+                  <div class="flex justify-center">
+                    <div class="w-full">
+                      <select
+                        class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded-md  transition ease-in-out m-0 focus:outline-none input"
+                        {...register("category")}
+                      >
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div className="formGroup">
+                  <label>Date</label>
+                  <input
+                    className="w-full rounded-md input uppercase focus:outline-none"
+                    type="date"
+                    id="date"
+                    value={moment().startOf("day").format("YYYY-MM-DD")}
+                    {...register("date")}
+                    {...register("date")}
+                  ></input>
+                </div>
+
                 <div className="formGroup">
                   <label>Amount</label>
                   <input
-                    className="w-full rounded-md input"
+                    className="w-full rounded-md input focus:outline-none"
                     type="text"
                     placeholder="PHP 0.00"
                     id="amount"
@@ -57,19 +72,9 @@ const TransactionModal = ({ close }) => {
                   ></input>
                 </div>
                 <div className="formGroup">
-                  <label>Date</label>
-                  <input
-                    className="w-full rounded-md input uppercase"
-                    type="date"
-                    placeholder="mm/dd/yyyy"
-                    {...register("date")}
-                    id="date"
-                  ></input>
-                </div>
-                <div className="formGroup">
                   <label>Description (optional)</label>
                   <textarea
-                    className="w-full rounded-md input"
+                    className="w-full rounded-md input focus:outline-none"
                     placeholder="description"
                     {...register("description")}
                     id="description"
