@@ -8,7 +8,6 @@ const TransactionModal = ({ close }) => {
   const onSubmit = (data) => {
     handleSubmit(data);
     reset();
-    console.log(data);
     store(data);
   };
   return (

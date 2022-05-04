@@ -36,7 +36,7 @@ const Sidebar = () => {
                 />
               </Link>
             </div>
-            <div className="sideBarLinks uppercase text-base">
+            <div className="sideBarLinks text-base">
               {Tabs.map(({ tabName, pathName, icon }) => (
                 <NavLink
                   className="pt-8 navLink"

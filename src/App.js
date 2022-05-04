@@ -1,6 +1,8 @@
 import "./App.css";
 import Sidebar from "./components/Sidebar/sidebar";
 import Topnav from "./components/Topnav/topnav";
+import Overview from "./pages/Overview/overview";
+import Transactions from "./pages/Transactions/transactions";
 
 function App() {
   return (
@@ -9,6 +11,8 @@ function App() {
         <Sidebar />
         <div className="contents">
           <Topnav />
+          <Transactions />
+          <Overview />
         </div>
       </div>
     </>

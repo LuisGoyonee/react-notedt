@@ -189,8 +189,11 @@ input {
 }
 
 .cancel:hover{
-  border-radius: 5px;
-  color: #00766C;
-  border: 1px solid #00766C;
+  color: #26A69A;
   transition: 0.3s ease-in-out;
+}
+
+.save:hover{
+  background-color: #26A69A;
+  transition: 0.3s ease-in-out; 
 }

@@ -1,7 +1,19 @@
 import React from "react";
 
 const Transactions = () => {
-  return <></>;
+  let keys = Object.keys(localStorage);
+  for (let key of keys) {
+    console.log(`${key}: ${localStorage.getItem(key)}`);
+  }
+  return (
+    <>
+      {keys ? (
+        <div className="transactionContainer"></div>
+      ) : (
+        <div className="other"></div>
+      )}
+    </>
+  );
 };
 
 export default Transactions;
