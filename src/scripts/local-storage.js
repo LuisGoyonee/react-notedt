@@ -9,3 +9,20 @@ export function store(data) {
         localStorage.setItem(newKey, JSON.stringify(data));
     }
 }
+
+export function retrieveTransactions() {
+    var lastKey = localStorage.getItem("lastKey");
+    var transactions = null;
+
+    if (localStorage.length > 0) {
+        transactions = [];
+        for (let i = 1; i <= lastKey; i++) {
+            if (localStorage[i] !== null) {
+                transactions.push(JSON.parse(localStorage[i]))
+            }
+
+        }
+    }
+
+    return transactions;
+}
