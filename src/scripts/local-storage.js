@@ -26,3 +26,7 @@ export function retrieveTransactions() {
 
     return transactions;
 }
+
+export function populateData() {
+
+}
