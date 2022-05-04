@@ -8,7 +8,41 @@ const Transactions = () => {
   return (
     <>
       {transactions ? (
-        <div className="transactionContainer">Hi</div>
+        <div className="transactionContainer">
+          <div className="titleContainer">
+            <div className="title">
+              TRANSACTION DETAILS
+            </div>
+            <div className="transactionItemsContainer">
+              <div className="transactionItem">
+                <div className="dateContainer">
+                  29 Friday, April 2022
+                </div>
+                <div className="categoryContainer">
+                  <div className="ellipse">
+                  </div>
+                  SALARY
+                </div>
+                <div className="descriptionContainer">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint consequatur repellendus aut eos, iure non autem eius magnam, assumenda quaerat sequi molestias eum nostrum voluptates totam cupiditate! Molestias, aut consequatur.
+                </div>
+              </div>
+              <div className="transactionItem">
+                <div className="dateContainer">
+                  30 Saturday, April 2022
+                </div>
+                <div className="categoryContainer">
+                  <div className="ellipse">
+                  </div>
+                  RENTAL
+                </div>
+                <div className="descriptionContainer">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint consequatur repellendus aut eos, iure non autem eius magnam, assumenda quaerat sequi molestias eum nostrum voluptates totam cupiditate! Molestias, aut consequatur.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       ) : (
         <div className="other">
           <div className="otherContents">
