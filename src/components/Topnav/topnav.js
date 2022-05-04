@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./topnav.css";
-import { BsSearch } from "react-icons/bs";
 import Button from "../Button/button";
-import { AiOutlineEye } from "react-icons/ai";
 import { HiOutlineCurrencyDollar } from "react-icons/hi";
-import TransactionModal from "../Modal/transaction-modal";
+import { getTotalSavings } from "../../scripts/local-storage";
+import { BsThreeDotsVertical } from "react-icons/bs";
 
 const Topnav = ({ openModal, setOpenModal }) => {
   return (
@@ -17,15 +16,15 @@ const Topnav = ({ openModal, setOpenModal }) => {
             </div>
             <div id="currency">
               <HiOutlineCurrencyDollar size={22} className="wallet" />
-              <p id="savings">PHP{}</p>
+              <p id="savings">{"PHP " + getTotalSavings()}</p>
             </div>
           </div>
           <div className="features">
-            {/* <div className="mb-3 xl:w-96">
+            <div className="xl:w-96 mr-2">
               <div className="input-group relative flex flex-wrap items-stretch w-full mb-4">
                 <input
                   type="search"
-                  className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0   focus:outline-none"
                   placeholder="Search"
                   aria-label="Search"
                   aria-describedby="button-addon2"
@@ -52,17 +51,18 @@ const Topnav = ({ openModal, setOpenModal }) => {
                   </svg>
                 </button>
               </div>
-            </div> */}
-            <div class="flex justify-center">
-              <div class="flex justify-center">
-                <div className="button">
-                  <Button
-                    text="Add Transaction"
-                    onClick={() => setOpenModal(true)}
-                  />
-                </div>
-              </div>
             </div>
+
+            <Button
+              text="Add Transaction"
+              onClick={() => setOpenModal(true)}
+              className="addTransactionButton relative flex flex-wrap items-stretch w-full mb-4"
+            />
+            <BsThreeDotsVertical
+              size={20}
+              color="black"
+              className="threeDots ml-2 relative "
+            />
           </div>
         </div>
       </div>

@@ -16,12 +16,6 @@
   padding-right: 5px;
 }
 
-.btn{
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2px;
-}
-
 .buttonContainer:hover{
   color: #fff;
   background-color: #00766C;
