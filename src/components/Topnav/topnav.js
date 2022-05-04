@@ -20,7 +20,7 @@ const Topnav = ({ openModal, setOpenModal }) => {
             </div>
           </div>
           <div className="features">
-            <div className="xl:w-96 mr-2">
+            <div className="xl:w-96 mr-2 z-0">
               <div className="input-group relative flex flex-wrap items-stretch w-full mb-4">
                 <input
                   type="search"
@@ -52,7 +52,6 @@ const Topnav = ({ openModal, setOpenModal }) => {
                 </button>
               </div>
             </div>
-
             <Button
               text="Add Transaction"
               onClick={() => setOpenModal(true)}
@@ -61,7 +60,7 @@ const Topnav = ({ openModal, setOpenModal }) => {
             <BsThreeDotsVertical
               size={20}
               color="black"
-              className="threeDots ml-2 relative "
+              className="threeDots ml-2 relative"
             />
           </div>
         </div>

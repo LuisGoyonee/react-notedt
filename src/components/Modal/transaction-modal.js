@@ -36,7 +36,7 @@ const TransactionModal = ({ close }) => {
   useEffect(() => {}, [formState]);
   return (
     <>
-      <div className="modalContainer">
+      <div className="modalContainer z-50">
         <div className="modal">
           <div className="modalBackground">
             <div className="modalHeader">
