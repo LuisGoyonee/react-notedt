@@ -1,3 +1,58 @@
-.transactionContainer{
-  
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@700&display=swap');
+.transactionContainer {}
+
+.otherContents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.noTransactionsVector {
+    position: static;
+    width: 663px;
+    height: 442px;
+    left: 0px;
+    top: 0px;
+    opacity: 0.5;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 10px 0px;
+}
+
+.noTransactions {
+    /* position: static; */
+    /* font-family: 'Poppins'; */
+    font-style: normal;
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 54px;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 1);
+}
+
+.noTransactionsDescription {
+    position: static;
+    width: 663px;
+    height: 54px;
+    left: 0px;
+    top: 516px;
+    /* font-family: 'Poppins'; */
+    font-style: normal;
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    /* Auto/03 */
+    color: #454545;
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 10px 0px;
 }
