@@ -1,18 +1,18 @@
 import { useForm } from "react-hook-form";
 import "./transaction-modal.css";
 import { store } from "../../scripts/local-storage";
-import { DateToday } from "../../constants/date";
 import moment from "moment";
 
 const TransactionModal = ({ close }) => {
   const { register, handleSubmit, reset } = useForm();
+
   const onSubmit = (data) => {
     handleSubmit(data);
     reset();
     close();
     store(data);
   };
-  console.log(DateToday);
+
   return (
     <>
       <div className="modalContainer">
@@ -56,7 +56,6 @@ const TransactionModal = ({ close }) => {
                     type="date"
                     id="date"
                     value={moment().startOf("day").format("YYYY-MM-DD")}
-                    {...register("date")}
                     {...register("date")}
                   ></input>
                 </div>
