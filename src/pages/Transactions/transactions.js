@@ -47,7 +47,7 @@ const Transactions = () => {
                         </div>
                       </div>
 
-                      <div className="transaction-item-description uppercase">
+                      <div className="transaction-item-description ">
                         {description}
                       </div>
                     </div>

@@ -46,9 +46,9 @@ export function getTotalSavings() {
     transactions.forEach((item) => {
       if (item.amount > 0) {
         if (item.transactionType === "Income") {
-          total += parseInt(item.amount);
+          total += parseFloat(item.amount);
         } else if (item.transactionType === "Expense") {
-          total -= parseInt(item.amount);
+          total -= parseFloat(item.amount);
         }
       }
       return total;
