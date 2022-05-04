@@ -15,7 +15,7 @@ const TransactionModal = ({ close }) => {
     date: moment().format("YYYY-MM-DD"),
     description: "",
   });
-  console.log(formState);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormState({
@@ -24,7 +24,6 @@ const TransactionModal = ({ close }) => {
     });
   };
 
-  console.log(formState);
   const onSubmit = (data) => {
     handleSubmit(data);
     store(data);
