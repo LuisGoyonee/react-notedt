@@ -15,7 +15,7 @@ const Transactions = ({ onChange }) => {
     <>
       {checkTransactions ? (
         <>
-          <div className="transactionContainer">
+          <div className="transactionContainer overflow-auto">
             <div className="header uppercase">Transaction details</div>
             <div className="transactionItemsContainer">
               {transactions.map((item, index) => {
