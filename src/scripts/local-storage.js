@@ -21,17 +21,20 @@ export function retrieveTransactions() {
     }
   }
   return transactions;
-  //   var lastKey = localStorage.getItem("lastKey");
-  //   var transactions = null;
-  //   if (localStorage.length > 0) {
-  //     transactions = [];
-  //     for (let i = 1; i <= lastKey; i++) {
-  //       if (localStorage[i] !== null) {
-  //         transactions.push(JSON.parse(localStorage[i]));
-  //       }
-  //     }
-  //   }
-  //   return transactions;
+}
+
+export function checker() {
+  var lastKey = localStorage.getItem("lastKey");
+  var transactions = null;
+  if (localStorage.length > 0) {
+    transactions = [];
+    for (let i = 1; i <= lastKey; i++) {
+      if (localStorage[i] !== null) {
+        transactions.push(JSON.parse(localStorage[i]));
+      }
+    }
+  }
+  return transactions;
 }
 
 export function populateData() {}
@@ -41,11 +44,14 @@ export function getTotalSavings() {
   var transactions = retrieveTransactions();
   if (transactions !== null) {
     transactions.forEach((item) => {
-      if (item.transactionType === "Income") {
-        total += parseInt(item.amount);
-      } else if (item.transactionType === "Expense") {
-        total -= parseInt(item.amount);
+      if (item.amount > 0) {
+        if (item.transactionType === "Income") {
+          total += parseFloat(item.amount);
+        } else if (item.transactionType === "Expense") {
+          total -= parseFloat(item.amount);
+        }
       }
+      return total;
     });
   }
   return total;

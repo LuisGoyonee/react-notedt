@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import "./transaction-modal.css";
 import { store } from "../../scripts/local-storage";
 import moment from "moment";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Expense, Income } from "../../constants/catagories";
 
 const TransactionModal = ({ close }) => {
@@ -12,10 +12,10 @@ const TransactionModal = ({ close }) => {
     transactionType: null,
     category: "",
     amount: "",
-    date: moment().startOf("day").format("YYYY-MM-DD"),
+    date: moment().format("YYYY-MM-DD"),
     description: "",
   });
-
+  console.log(formState);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormState({
@@ -24,6 +24,7 @@ const TransactionModal = ({ close }) => {
     });
   };
 
+  console.log(formState);
   const onSubmit = (data) => {
     handleSubmit(data);
     store(data);
@@ -32,9 +33,10 @@ const TransactionModal = ({ close }) => {
     close();
   };
 
+  useEffect(() => {}, [formState]);
   return (
     <>
-      <div className="modalContainer">
+      <div className="modalContainer z-50">
         <div className="modal">
           <div className="modalBackground">
             <div className="modalHeader">
@@ -68,7 +70,6 @@ const TransactionModal = ({ close }) => {
                         class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded-md  transition ease-in-out m-0 focus:outline-none input"
                         {...register("category")}
                         onClick={handleInputChange}
-                        placeholder={formState.category}
                         disabled={formState.transactionType === null}
                       >
                         {formState.transactionType === "Income"
@@ -102,6 +103,7 @@ const TransactionModal = ({ close }) => {
                     value={formState.date}
                     {...register("date")}
                     onChange={handleInputChange}
+                    required
                   ></input>
                 </div>
 
@@ -114,6 +116,7 @@ const TransactionModal = ({ close }) => {
                     id="amount"
                     {...register("amount")}
                     onChange={handleInputChange}
+                    required
                   ></input>
                 </div>
                 <div className="formGroup">
