@@ -15,7 +15,7 @@ const TransactionModal = ({ close }) => {
     date: moment().format("YYYY-MM-DD"),
     description: "",
   });
-  console.log(formState);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormState({
@@ -28,7 +28,6 @@ const TransactionModal = ({ close }) => {
   const onSubmit = (data) => {
     handleSubmit(data);
     store(data);
-    console.log(data);
     reset();
     close();
   };
@@ -69,7 +68,7 @@ const TransactionModal = ({ close }) => {
                       <select
                         class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded-md  transition ease-in-out m-0 focus:outline-none input"
                         {...register("category")}
-                        onClick={handleInputChange}
+                        onChange={handleInputChange}
                         disabled={formState.transactionType === null}
                       >
                         {formState.transactionType === "Income"

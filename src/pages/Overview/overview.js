@@ -2,7 +2,6 @@ import React from "react";
 import "./overview.css";
 import noTransactions from "../../images/no-transactions.png";
 import { checker, retrieveTransactions } from "../../scripts/local-storage";
-// import { data } from "./data";
 import DoughnutIncomeChart from "../../components/Charts/Doughnut/doughnutIncomeChart";
 import DoughnutExpenseChart from "../../components/Charts/Doughnut/doughnutExpenseChart";
 
@@ -23,11 +22,14 @@ const Overview = () => {
           <div className="scroll-smooth h-auto">
             <div className="overViewItemsContainer">
               <ul
-                class="nav nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4"
+                className="nav nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4"
                 id="tabs-tabFill"
                 role="tablist"
               >
-                <li class="nav-item flex-auto text-center" role="presentation">
+                <li
+                  className="nav-item flex-auto text-center"
+                  role="presentation"
+                >
                   <a
                     href="#tabs-homeFill"
                     class="nav-link w-full block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-transparent hover:bg-gray-100 focus:border-transparent active "
@@ -41,10 +43,13 @@ const Overview = () => {
                     Income
                   </a>
                 </li>
-                <li class="nav-item flex-auto text-center" role="presentation">
+                <li
+                  className="nav-item flex-auto text-center"
+                  role="presentation"
+                >
                   <a
                     href="#tabs-profileFill"
-                    class="nav-link w-full block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-transparent hover:bg-gray-100 focus:border-transparent "
+                    className="nav-link w-full block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-transparent hover:bg-gray-100 focus:border-transparent "
                     id="tabs-profile-tabFill"
                     data-bs-toggle="pill"
                     data-bs-target="#tabs-profileFill"
@@ -58,7 +63,7 @@ const Overview = () => {
               </ul>
               <div class="tab-content" id="tabs-tabContentFill">
                 <div
-                  class="tab-pane fade show active"
+                  className="tab-pane fade show active"
                   id="tabs-homeFill"
                   role="tabpanel"
                   aria-labelledby="tabs-home-tabFill"
@@ -69,7 +74,7 @@ const Overview = () => {
                   />
                 </div>
                 <div
-                  class="tab-pane fade"
+                  className="tab-pane fade"
                   id="tabs-profileFill"
                   role="tabpanel"
                   aria-labelledby="tabs-profile-tabFill"

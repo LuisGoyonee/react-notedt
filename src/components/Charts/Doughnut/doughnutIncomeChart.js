@@ -34,10 +34,8 @@ const DoughnutIncomeChart = ({ allData, checker }) => {
       {checker && (
         <Doughnut
           data={data}
-          width={700}
-          height={500}
           options={{
-            maintainAspectRatio: false,
+            aspectRatio: 4,
             plugins: {
               legend: {
                 display: true,

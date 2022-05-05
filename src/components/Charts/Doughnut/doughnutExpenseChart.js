@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Bar, Doughnut, Pie } from "react-chartjs-2";
+import { Doughnut, Pie } from "react-chartjs-2";
 
 const DoughnutExpenseChart = ({ allData, checker }) => {
   const [labels, setLabels] = useState([]);
@@ -53,10 +53,8 @@ const DoughnutExpenseChart = ({ allData, checker }) => {
       {checker && (
         <Doughnut
           data={data}
-          width={700}
-          height={500}
           options={{
-            maintainAspectRatio: false,
+            aspectRatio: 4,
             plugins: {
               legend: {
                 display: true,
