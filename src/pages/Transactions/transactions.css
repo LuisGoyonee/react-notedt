@@ -13,6 +13,7 @@
 }
 
 .transactionItemsContainer {
+  width: auto;
   border: 1px solid #D3D3D3;
   padding: 20px;
   border-radius: 5px;

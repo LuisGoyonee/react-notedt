@@ -7,7 +7,7 @@ import { IconContext } from "react-icons";
 import { BsCircleFill } from "react-icons/bs";
 import { HiOutlineTrash } from "react-icons/hi";
 
-const Transactions = () => {
+const Transactions = ({ onChange }) => {
   let transactions = retrieveTransactions();
   let checkTransactions = checker();
 
