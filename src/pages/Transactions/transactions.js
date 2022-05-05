@@ -7,16 +7,16 @@ import { IconContext } from "react-icons";
 import { BsCircleFill } from "react-icons/bs";
 import { HiOutlineTrash } from "react-icons/hi";
 
-const Transactions = () => {
+const Transactions = ({ onChange }) => {
   let transactions = retrieveTransactions();
   let checkTransactions = checker();
 
   return (
     <>
       {checkTransactions ? (
-        <div className="transactionContainer">
+        <div className="transactionContainer overflow-auto">
           <div className="header uppercase">Transaction details</div>
-          <div className="transactionItemsContainer">
+          <div className="transactionItemsContainer ">
             {transactions.map((item, index) => {
               const { date, amount, description, category, transactionType } =
                 item;

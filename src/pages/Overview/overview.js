@@ -1,17 +1,19 @@
 import React from "react";
 import "./overview.css";
 import noTransactions from "../../images/no-transactions.png";
-import { checker } from "../../scripts/local-storage";
+import { checker, retrieveTransactions } from "../../scripts/local-storage";
 // import { data } from "./data";
-import DoughnutChart from "../../components/Charts/Doughnut/doughnutChart";
+import DoughnutIncomeChart from "../../components/Charts/Doughnut/doughnutIncomeChart";
+import DoughnutExpenseChart from "../../components/Charts/Doughnut/doughnutExpenseChart";
 
 const Overview = () => {
   let checkTransactions = checker();
+  const data = retrieveTransactions();
 
   return (
     <>
       {checkTransactions ? (
-        <div className="overviewContainer">
+        <div className="overviewContainer overflow-auto">
           <div className="headerContainer">
             <div className="headerOverview uppercase">
               Transactions Overview
@@ -61,7 +63,10 @@ const Overview = () => {
                   role="tabpanel"
                   aria-labelledby="tabs-home-tabFill"
                 >
-                  <DoughnutChart />
+                  <DoughnutIncomeChart
+                    allData={data}
+                    checker={checkTransactions}
+                  />
                 </div>
                 <div
                   class="tab-pane fade"
@@ -69,11 +74,14 @@ const Overview = () => {
                   role="tabpanel"
                   aria-labelledby="tabs-profile-tabFill"
                 >
-                  Tab 2 content fill
+                  <DoughnutExpenseChart
+                    allData={data}
+                    checker={checkTransactions}
+                  />
                 </div>
               </div>
             </div>
-            <div className="overViewItemsContainer"></div>
+            {/* <div className="overViewItemsContainer"></div> */}
           </div>
         </div>
       ) : (

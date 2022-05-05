@@ -56,3 +56,34 @@ export function getTotalSavings() {
   }
   return total;
 }
+export function getTotalIncome() {
+  var total = 0;
+  var transactions = retrieveTransactions();
+  if (transactions !== null) {
+    transactions.forEach((item) => {
+      if (item.amount > 0) {
+        if (item.transactionType === "Income") {
+          total += parseFloat(item.amount);
+        }
+        return total;
+      }
+    });
+  }
+  return total;
+}
+
+export function getTotalExpense() {
+  var total = 0;
+  var transactions = retrieveTransactions();
+  if (transactions !== null) {
+    transactions.forEach((item) => {
+      if (item.amount > 0) {
+        if (item.transactionType === "Expense") {
+          total += parseFloat(item.amount);
+        }
+        return total;
+      }
+    });
+  }
+  return total;
+}
