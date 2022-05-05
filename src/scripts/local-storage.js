@@ -26,7 +26,8 @@ export function retrieveTransactions() {
 export function checker() {
   var lastKey = localStorage.getItem("lastKey");
   var transactions = null;
-  if (localStorage.length > 0) {
+  var hasValidItems = localStorage.length > 1; // last key excluded
+  if (hasValidItems) {
     transactions = [];
     for (let i = 1; i <= lastKey; i++) {
       if (localStorage[i] !== null) {
