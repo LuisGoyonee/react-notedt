@@ -1,17 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Tabs } from "../../constants/tabs";
 import logo from "../../images/Logo.png";
 import "./sidebar.css";
 import { Link, NavLink } from "react-router-dom";
 
-const Sidebar = () => {
-  const [activeTab, setActiveTab] = useState("Transactions");
-
-  const onClick = (tab) => () => {
-    setActiveTab(tab);
-  };
-  useEffect(() => {}, [activeTab]);
-
+const Sidebar = ({ searchBar, setSearchBar }) => {
   return (
     <>
       <div className="sideBarWrapper">
@@ -34,7 +27,13 @@ const Sidebar = () => {
                 to={pathName}
                 key={tabName}
                 activeClassName="active"
-                onClick={onClick(tabName)}
+                onClick={() => {
+                  if (tabName === "Overview") {
+                    setSearchBar(false);
+                  } else {
+                    setSearchBar(true);
+                  }
+                }}
               >
                 {icon}
                 {tabName}

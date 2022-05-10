@@ -3,13 +3,13 @@ import { AiFillPieChart } from "react-icons/ai";
 
 export const Tabs = [
   {
-    tabName: "Transactions",
+    tabName: "Overview",
     pathName: "/",
-    icon: <BsArrowLeftRight size={40} />,
+    icon: <AiFillPieChart size={40} />,
   },
   {
-    tabName: "Overview",
-    pathName: "/overview",
-    icon: <AiFillPieChart size={40} />,
+    tabName: "Transactions",
+    pathName: "/transactions",
+    icon: <BsArrowLeftRight size={40} />,
   },
 ];

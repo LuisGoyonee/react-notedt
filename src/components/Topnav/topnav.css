@@ -1,5 +1,5 @@
 .topNavWrapper{
-  display: grid;
+  display: flex;
   padding: 20px 20px;
   width: 100%;
   height: 90px;
@@ -18,77 +18,45 @@
 }
 
 .balance{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
+  width: 20%;
 }
-#current{
-  color:black
-}
+
 #currency{
   display: flex;
-}
-
-.wallet{
-  margin-right:8px;
-}
-
-#savings{
-  font-weight: 400;
-  color:black;
-  font-size: 15px;
-}
-.features{
-  display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  width: 100%;
-  height: 100%;
 }
 
-.threeDots{
-  height: 75%
+#savings {
+  padding-left: 5px;
 }
 
-.search{
-  width: 20%;
-  height: 100%;
-}
-
-.search {
+.features{
+  width: 80%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  color:#FFFFFF;
-  background-color: #00766C;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-.searchInput{
-  width: 100%;
-  height: 100%;
-  color: #00766C;
-  font-size: 15px;
-  border: 1px solid #00766C;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  padding: 10px 20px;
+  justify-content: end;
 }
 
 .inputGroup{
   display: flex;
-  flex-direction: row;
   width: 50%;
-  height: 100%;
-  margin-right: 2rem;
+  padding: 8px;
+  margin-right: 7px;
+  align-items: center;
+  border: #00766C 1px solid;
+  border-radius: 5px;
 }
 
-
-.input:focus{
-  border-color: #00766C;
-  /* box-shadow: 0 0 0 0.2rem rgba(0,123,108,.25); */
+form.searchForm{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  
 }
+input.searchInput{
+  width: 100%;
+}
+
 .form-control:focus {
   box-shadow: 0 0 0 1px #00766C;
 }
@@ -102,6 +70,7 @@ input[type="search"]::-webkit-search-cancel-button {
   background-size: contain;
   opacity: 0;
   pointer-events: none;
+  margin: 0 10px 0 10px;
 }
 
 input[type="search"]:focus::-webkit-search-cancel-button {

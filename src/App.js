@@ -4,22 +4,33 @@ import Topnav from "./components/Topnav/topnav";
 import Overview from "./pages/Overview/overview";
 import Transactions from "./pages/Transactions/transactions";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import TransactionModal from "./components/Modal/transaction-modal";
+import TransactionModal from "./components/Modal/TransactionModal/transaction-modal";
 import { useState } from "react";
 import Footer from "./components/Footer/footer";
+import FilterModal from "./components/Modal/FilterModal/filter-modal";
 
 function App() {
-  const [openModal, setOpenModal] = useState(false);
+  const [openTransactionModal, setOpenTransactionModal] = useState(false);
+  const [openFilterModal, setOpenFilterModal] = useState(false);
+  const [searchBar, setSearchBar] = useState(false);
+  console.log(searchBar);
   return (
     <Router>
-      {openModal && <TransactionModal close={setOpenModal} />}
+      {openTransactionModal && (
+        <TransactionModal close={setOpenTransactionModal} />
+      )}
+      {openFilterModal && <FilterModal close={setOpenFilterModal} />}
       <div className="mainContainer">
-        <Sidebar />
+        <Sidebar searchBar={searchBar} setSearchBar={setSearchBar} />
         <div className="mainBodyContainer">
-          <Topnav setOpenModal={setOpenModal} />
+          <Topnav
+            setOpenTransactionModal={setOpenTransactionModal}
+            setOpenFilterModal={setOpenFilterModal}
+            searchBar={searchBar}
+          />
           <Routes>
-            <Route path="/" element={<Transactions />} />
-            <Route path="/overview" element={<Overview />} />
+            <Route path="/" element={<Overview />} />
+            <Route path="/transactions" element={<Transactions />} />
           </Routes>
           <Footer />
         </div>

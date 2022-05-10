@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 import "./transaction-modal.css";
-import { store } from "../../scripts/local-storage";
+import { store } from "../../../scripts/local-storage";
 import moment from "moment";
 import { useEffect, useState } from "react";
-import { Expense, Income } from "../../constants/catagories";
+import { Expense, Income } from "../../../constants/catagories";
 
 const TransactionModal = ({ close }) => {
   const { register, handleSubmit, reset } = useForm();
@@ -24,7 +24,6 @@ const TransactionModal = ({ close }) => {
     });
   };
 
-  console.log(formState);
   const onSubmit = (data) => {
     handleSubmit(data);
     store(data);
