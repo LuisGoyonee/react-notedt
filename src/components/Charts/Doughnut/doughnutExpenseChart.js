@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Doughnut, Pie } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 
 const DoughnutExpenseChart = ({ allData, checker }) => {
   const [labels, setLabels] = useState([]);
