@@ -4,7 +4,7 @@ import logo from "../../images/Logo.png";
 import "./sidebar.css";
 import { Link, NavLink } from "react-router-dom";
 
-const Sidebar = ({ searchBar, setSearchBar }) => {
+const Sidebar = ({ transactionsPage, setTransactionsPage }) => {
   return (
     <>
       <div className="sideBarWrapper">
@@ -29,9 +29,9 @@ const Sidebar = ({ searchBar, setSearchBar }) => {
                 activeClassName="active"
                 onClick={() => {
                   if (tabName === "Overview") {
-                    setSearchBar(false);
+                    setTransactionsPage(false);
                   } else {
-                    setSearchBar(true);
+                    setTransactionsPage(true);
                   }
                 }}
               >

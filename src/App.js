@@ -12,21 +12,32 @@ import FilterModal from "./components/Modal/FilterModal/filter-modal";
 function App() {
   const [openTransactionModal, setOpenTransactionModal] = useState(false);
   const [openFilterModal, setOpenFilterModal] = useState(false);
-  const [searchBar, setSearchBar] = useState(false);
-  console.log(searchBar);
+  const [transactionsPage, setTransactionsPage] = useState(false);
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const searchHandler = (searchTerm) => {
+    console.log(searchTerm);
+  };
   return (
     <Router>
       {openTransactionModal && (
         <TransactionModal close={setOpenTransactionModal} />
       )}
-      {openFilterModal && <FilterModal close={setOpenFilterModal} />}
+      {openFilterModal && (
+        <FilterModal close={setOpenFilterModal} open={openFilterModal} />
+      )}
       <div className="mainContainer">
-        <Sidebar searchBar={searchBar} setSearchBar={setSearchBar} />
+        <Sidebar
+          transactionsPage={transactionsPage}
+          setTransactionsPage={setTransactionsPage}
+        />
         <div className="mainBodyContainer">
           <Topnav
             setOpenTransactionModal={setOpenTransactionModal}
             setOpenFilterModal={setOpenFilterModal}
-            searchBar={searchBar}
+            transactionsPage={transactionsPage}
+            term={searchTerm}
+            searchKeyword={searchHandler}
           />
           <Routes>
             <Route path="/" element={<Overview />} />
