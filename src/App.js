@@ -8,29 +8,65 @@ import TransactionModal from "./components/Modal/TransactionModal/transaction-mo
 import { useState } from "react";
 import Footer from "./components/Footer/footer";
 import FilterModal from "./components/Modal/FilterModal/filter-modal";
+import { retrieveTransactions } from "./scripts/local-storage";
 
 function App() {
+  let transactions = retrieveTransactions();
   const [openTransactionModal, setOpenTransactionModal] = useState(false);
   const [openFilterModal, setOpenFilterModal] = useState(false);
-  const [searchBar, setSearchBar] = useState(false);
-  console.log(searchBar);
+  const [transactionsPage, setTransactionsPage] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const searchHandler = (searchTerm) => {
+    setSearchTerm(searchTerm);
+    if (searchTerm !== "") {
+      const newTransactionsList = transactions.filter((item) => {
+        return Object.values(item)
+          .join("")
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase());
+      });
+      setSearchResults(newTransactionsList);
+    } else {
+      setSearchResults(transactions);
+    }
+  };
+  console.log(transactions);
   return (
     <Router>
       {openTransactionModal && (
         <TransactionModal close={setOpenTransactionModal} />
       )}
-      {openFilterModal && <FilterModal close={setOpenFilterModal} />}
+      {openFilterModal && (
+        <FilterModal close={setOpenFilterModal} open={openFilterModal} />
+      )}
       <div className="mainContainer">
-        <Sidebar searchBar={searchBar} setSearchBar={setSearchBar} />
+        <Sidebar
+          transactionsPage={transactionsPage}
+          setTransactionsPage={setTransactionsPage}
+        />
         <div className="mainBodyContainer">
           <Topnav
             setOpenTransactionModal={setOpenTransactionModal}
             setOpenFilterModal={setOpenFilterModal}
-            searchBar={searchBar}
+            transactionsPage={transactionsPage}
+            searchKeyword={searchHandler}
+            term={searchTerm}
           />
           <Routes>
             <Route path="/" element={<Overview />} />
-            <Route path="/transactions" element={<Transactions />} />
+            <Route
+              path="/transactions"
+              element={
+                <Transactions
+                  searchTerm={searchTerm}
+                  setSearchTerm={setSearchTerm}
+                  transactions={
+                    searchTerm.length < 1 ? transactions : searchResults
+                  }
+                />
+              }
+            />
           </Routes>
           <Footer />
         </div>

@@ -4,8 +4,16 @@ import Button from "../Button/button";
 import { HiOutlineCurrencyDollar } from "react-icons/hi";
 import { getTotalSavings } from "../../scripts/local-storage";
 import { BsThreeDotsVertical, BsSearch } from "react-icons/bs";
+import Searchbar from "../Searchbar/searchbar";
 
-const Topnav = ({ setOpenTransactionModal, setOpenFilterModal, searchBar }) => {
+const Topnav = ({
+  setOpenTransactionModal,
+  setOpenFilterModal,
+  transactionsPage,
+  setSearchTerm,
+  searchKeyword,
+  term,
+}) => {
   return (
     <>
       <div className="topNavWrapper">
@@ -20,26 +28,15 @@ const Topnav = ({ setOpenTransactionModal, setOpenFilterModal, searchBar }) => {
             </div>
           </div>
           <div className="features">
-            {searchBar && (
-              <div className="inputGroup">
-                <form className="searchForm">
-                  <input
-                    type="search"
-                    className="searchInput outline-none"
-                    placeholder="Search"
-                  ></input>
-                  <button type="submit" class="searchIcon">
-                    <BsSearch size={22} className="cursor-pointer searchIcon" />
-                  </button>
-                </form>
-              </div>
+            {transactionsPage && (
+              <Searchbar term={term} searchKeyword={searchKeyword} />
             )}
             <Button
               text="Add Transaction"
               onClick={() => setOpenTransactionModal(true)}
               className="relative flex flex-wrap items-stretch w-full mb-4"
             />
-            {searchBar && (
+            {transactionsPage && (
               <BsThreeDotsVertical
                 size={20}
                 color="black"

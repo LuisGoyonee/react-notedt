@@ -4,6 +4,7 @@ import { store } from "../../../scripts/local-storage";
 import moment from "moment";
 import { useEffect, useState } from "react";
 import { Expense, Income } from "../../../constants/catagories";
+import Modal from "react-modal";
 
 const TransactionModal = ({ close }) => {
   const { register, handleSubmit, reset } = useForm();
@@ -45,7 +46,7 @@ const TransactionModal = ({ close }) => {
                 <div className="formGroup">
                   <div class="w-full">
                     <select
-                      class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded-md  transition ease-in-out m-0 focus:outline-none input"
+                      class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded-md transition ease-in-out m-0 focus:outline-none input"
                       {...register("transactionType")}
                       onClick={handleInputChange}
                       placeholder={formState.transactionType}
