@@ -4,7 +4,6 @@ import { store } from "../../../scripts/local-storage";
 import moment from "moment";
 import { useEffect, useState } from "react";
 import { Expense, Income } from "../../../constants/catagories";
-import Modal from "react-modal";
 
 const TransactionModal = ({ close }) => {
   const { register, handleSubmit, reset } = useForm();

@@ -1,19 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./topnav.css";
 import Button from "../Button/button";
 import { HiOutlineCurrencyDollar } from "react-icons/hi";
 import { getTotalSavings } from "../../scripts/local-storage";
-import { BsThreeDotsVertical, BsSearch } from "react-icons/bs";
+import { BsThreeDotsVertical } from "react-icons/bs";
 import Searchbar from "../Searchbar/searchbar";
+import { useLocation } from "react-router";
 
 const Topnav = ({
   setOpenTransactionModal,
   setOpenFilterModal,
+  setTransactionsPage,
   transactionsPage,
-  setSearchTerm,
   searchKeyword,
   term,
 }) => {
+  const { pathname } = useLocation();
+  const isTransactionsPath = pathname === "/transactions";
+  console.log(pathname);
+  useEffect(() => {
+    if (isTransactionsPath) {
+      setTransactionsPage(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isTransactionsPath]);
   return (
     <>
       <div className="topNavWrapper">
@@ -28,7 +38,7 @@ const Topnav = ({
             </div>
           </div>
           <div className="features">
-            {transactionsPage && (
+            {transactionsPage && pathname === "/transactions" && (
               <Searchbar term={term} searchKeyword={searchKeyword} />
             )}
             <Button
@@ -36,7 +46,7 @@ const Topnav = ({
               onClick={() => setOpenTransactionModal(true)}
               className="relative flex flex-wrap items-stretch w-full mb-4"
             />
-            {transactionsPage && (
+            {transactionsPage && pathname === "/transactions" && (
               <BsThreeDotsVertical
                 size={20}
                 color="black"

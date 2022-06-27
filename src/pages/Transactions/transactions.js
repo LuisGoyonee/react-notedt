@@ -1,5 +1,5 @@
 import React from "react";
-import { checker, retrieveTransactions } from "../../scripts/local-storage";
+import { checker } from "../../scripts/local-storage";
 import "./transactions.css";
 import noTransactions from "../../images/no-transactions.png";
 import moment from "moment";
