@@ -3,17 +3,17 @@ import "./topnav.css";
 import Button from "../Button/button";
 import { HiOutlineCurrencyDollar } from "react-icons/hi";
 import { getTotalSavings } from "../../scripts/local-storage";
-import { BsThreeDotsVertical } from "react-icons/bs";
+import { BsThreeDotsVertical, BsSearch } from "react-icons/bs";
 import Searchbar from "../Searchbar/searchbar";
 
 const Topnav = ({
   setOpenTransactionModal,
   setOpenFilterModal,
   transactionsPage,
-  term,
+  setSearchTerm,
   searchKeyword,
+  term,
 }) => {
-  console.log({ term });
   return (
     <>
       <div className="topNavWrapper">

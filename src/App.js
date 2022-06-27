@@ -8,16 +8,30 @@ import TransactionModal from "./components/Modal/TransactionModal/transaction-mo
 import { useState } from "react";
 import Footer from "./components/Footer/footer";
 import FilterModal from "./components/Modal/FilterModal/filter-modal";
+import { retrieveTransactions } from "./scripts/local-storage";
 
 function App() {
+  let transactions = retrieveTransactions();
   const [openTransactionModal, setOpenTransactionModal] = useState(false);
   const [openFilterModal, setOpenFilterModal] = useState(false);
   const [transactionsPage, setTransactionsPage] = useState(false);
-
   const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
   const searchHandler = (searchTerm) => {
-    console.log(searchTerm);
+    setSearchTerm(searchTerm);
+    if (searchTerm !== "") {
+      const newTransactionsList = transactions.filter((item) => {
+        return Object.values(item)
+          .join("")
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase());
+      });
+      setSearchResults(newTransactionsList);
+    } else {
+      setSearchResults(transactions);
+    }
   };
+  console.log(transactions);
   return (
     <Router>
       {openTransactionModal && (
@@ -36,12 +50,23 @@ function App() {
             setOpenTransactionModal={setOpenTransactionModal}
             setOpenFilterModal={setOpenFilterModal}
             transactionsPage={transactionsPage}
-            term={searchTerm}
             searchKeyword={searchHandler}
+            term={searchTerm}
           />
           <Routes>
             <Route path="/" element={<Overview />} />
-            <Route path="/transactions" element={<Transactions />} />
+            <Route
+              path="/transactions"
+              element={
+                <Transactions
+                  searchTerm={searchTerm}
+                  setSearchTerm={setSearchTerm}
+                  transactions={
+                    searchTerm.length < 1 ? transactions : searchResults
+                  }
+                />
+              }
+            />
           </Routes>
           <Footer />
         </div>

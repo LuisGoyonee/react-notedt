@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { BsSearch } from "react-icons/bs";
-const Searchbar = (term, searchKeyword) => {
+const Searchbar = ({ searchKeyword, term }) => {
   const inputElement = useRef("");
   const getSearchTerm = () => {
     searchKeyword(inputElement.current.value);
