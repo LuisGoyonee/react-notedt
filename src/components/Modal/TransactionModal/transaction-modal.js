@@ -95,7 +95,7 @@ const TransactionModal = ({ close }) => {
                 <div className="formGroup">
                   <label>Date</label>
                   <input
-                    className="w-full rounded-md input uppercase focus:outline-none"
+                    className="w-full rounded-md input uppercase focus:outline-none mb-2.5"
                     type="date"
                     id="date"
                     value={formState.date}
@@ -108,7 +108,7 @@ const TransactionModal = ({ close }) => {
                 <div className="formGroup">
                   <label>Amount</label>
                   <input
-                    className="w-full rounded-md input focus:outline-none"
+                    className="w-full rounded-md input focus:outline-none mb-2.5"
                     type="number"
                     placeholder="PHP 0.00"
                     id="amount"

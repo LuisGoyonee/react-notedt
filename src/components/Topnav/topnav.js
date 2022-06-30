@@ -17,7 +17,7 @@ const Topnav = ({
 }) => {
   const { pathname } = useLocation();
   const isTransactionsPath = pathname === "/transactions";
-  console.log(pathname);
+
   useEffect(() => {
     if (isTransactionsPath) {
       setTransactionsPage(true);
