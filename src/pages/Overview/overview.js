@@ -1,10 +1,11 @@
-import React, { FC } from "react";
+import React from "react";
 import "./overview.css";
 import noTransactions from "../../images/no-transactions.png";
 import { checker, retrieveTransactions } from "../../scripts/local-storage";
 import DoughnutIncomeChart from "../../components/Charts/Doughnut/doughnutIncomeChart";
 import DoughnutExpenseChart from "../../components/Charts/Doughnut/doughnutExpenseChart";
-const Overview: FC = () => {
+
+const Overview = () => {
   let checkTransactions = checker();
   const data = retrieveTransactions();
 
@@ -31,7 +32,7 @@ const Overview: FC = () => {
                 >
                   <a
                     href="#tabs-homeFill"
-                    className="nav-link w-full block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-transparent hover:bg-gray-100 focus:border-transparent active "
+                    class="nav-link w-full block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-transparent hover:bg-gray-100 focus:border-transparent active "
                     id="tabs-home-tabFill"
                     data-bs-toggle="pill"
                     data-bs-target="#tabs-homeFill"
@@ -60,7 +61,7 @@ const Overview: FC = () => {
                   </a>
                 </li>
               </ul>
-              <div className="tab-content" id="tabs-tabContentFill">
+              <div class="tab-content" id="tabs-tabContentFill">
                 <div
                   className="tab-pane fade show active"
                   id="tabs-homeFill"
@@ -91,12 +92,12 @@ const Overview: FC = () => {
       ) : (
         <div className="other">
           <div className="otherContents">
-            <img className="noTransactionsVector" src={noTransactions} alt="" />
+            <img class="noTransactionsVector" src={noTransactions} alt="" />
             <div>
-              <p className="noTransactions">NO TRANSACTIONS</p>
+              <p class="noTransactions">NO TRANSACTIONS</p>
             </div>
             <div>
-              <p className="noTransactionsDescription">
+              <p class="noTransactionsDescription">
                 You do not have any transactions yet. Click on the “Add
                 Transactions” button to start tracking your budget.
               </p>
