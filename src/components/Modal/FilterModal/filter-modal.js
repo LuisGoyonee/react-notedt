@@ -11,7 +11,6 @@ const FilterModal = ({ close, open }) => {
         contentLabel="Example Modal"
         className="modalContainer"
       >
-        <button onClick={() => close(false)}>close</button>
         <div className="modal-filter">
           <div className="modalBackground">
             <div className="modalHeader">
