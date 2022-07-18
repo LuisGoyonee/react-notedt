@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./topnav.css";
-import Button from "../Button/button";
+import Button from "../Button/button.tsx";
 import { HiOutlineCurrencyDollar } from "react-icons/hi";
 import { getTotalSavings } from "../../scripts/local-storage";
 import { BsThreeDotsVertical } from "react-icons/bs";

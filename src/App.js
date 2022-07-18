@@ -2,7 +2,7 @@ import "./App.css";
 import Sidebar from "./components/Sidebar/sidebar";
 import Topnav from "./components/Topnav/topnav";
 import Overview from "./pages/Overview/overview";
-import Transactions from "./pages/Transactions/transactions";
+import Transactions from "./pages/Transactions/transactions.tsx";
 import { Routes, Route } from "react-router-dom";
 import TransactionModal from "./components/Modal/TransactionModal/transaction-modal";
 import { useState } from "react";
