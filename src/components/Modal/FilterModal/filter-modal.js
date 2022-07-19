@@ -11,7 +11,6 @@ const FilterModal = ({ close, open }) => {
         contentLabel="Example Modal"
         className="modalContainer"
       >
-        <button onClick={() => close(false)}>close</button>
         <div className="modal-filter">
           <div className="modalBackground">
             <div className="modalHeader">
@@ -38,7 +37,7 @@ const FilterModal = ({ close, open }) => {
                     <div className="font-semibold w-full flex">
                       <input type="checkbox" />
                       <label className="pl-10">Income</label>
-                      <span class="checkmark"></span>
+                      <span className="checkmark"></span>
                     </div>
                     <div className="font-semibold w-full  flex">
                       <input type="checkbox" />

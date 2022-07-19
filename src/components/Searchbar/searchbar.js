@@ -17,7 +17,7 @@ const Searchbar = ({ searchKeyword, term }) => {
             value={term}
             onChange={getSearchTerm}
           />
-          <button type="submit" class="searchIcon">
+          <button type="submit" className="searchIcon">
             <BsSearch size={22} className="cursor-pointer searchIcon" />
           </button>
         </form>

@@ -43,9 +43,9 @@ const TransactionModal = ({ close }) => {
             <div className="modalBody">
               <form className="form">
                 <div className="formGroup">
-                  <div class="w-full">
+                  <div className="w-full">
                     <select
-                      class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded-md transition ease-in-out m-0 focus:outline-none input"
+                      className="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded-md transition ease-in-out m-0 focus:outline-none input"
                       {...register("transactionType")}
                       onClick={handleInputChange}
                       placeholder={formState.transactionType}
@@ -62,10 +62,10 @@ const TransactionModal = ({ close }) => {
                 </div>
                 <div className="formGroup">
                   <label>Category</label>
-                  <div class="flex justify-center">
-                    <div class="w-full">
+                  <div className="flex justify-center">
+                    <div className="w-full">
                       <select
-                        class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded-md  transition ease-in-out m-0 focus:outline-none input"
+                        className="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded-md  transition ease-in-out m-0 focus:outline-none input"
                         {...register("category")}
                         onChange={handleInputChange}
                         disabled={formState.transactionType === null}
