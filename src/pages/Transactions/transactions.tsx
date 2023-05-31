@@ -1,4 +1,4 @@
-import React from "react";
+import React, {FC} from "react";
 import { checker } from "../../scripts/local-storage";
 import "./transactions.css";
 import noTransactions from "../../images/no-transactions.png";
@@ -6,8 +6,13 @@ import moment from "moment";
 import { IconContext } from "react-icons";
 import { BsCircleFill } from "react-icons/bs";
 import { HiOutlineTrash } from "react-icons/hi";
+import { TransactionItems } from "../../types/transactions";
 
-const Transactions = ({ transactions }) => {
+type TransactionProps = {
+  transactions: TransactionItems[]
+}
+
+const Transactions: FC<TransactionProps> = ({ transactions }) => {
   let checkTransactions = checker();
 
   const renderTransactionsList = () => {
@@ -70,12 +75,12 @@ const Transactions = ({ transactions }) => {
         ) : (
           <div className="other">
             <div className="otherContents">
-              <img class="noTransactionsVector" src={noTransactions} alt="" />
+              <img className="noTransactionsVector" src={noTransactions} alt="" />
               <div>
-                <p class="noTransactions">No transactions match your keyword</p>
+                <p className="noTransactions">No transactions match your keyword</p>
               </div>
               <div>
-                <p class="noTransactionsDescription">
+                <p className="noTransactionsDescription">
                   Try searching for a different keyword
                 </p>
               </div>
@@ -90,12 +95,12 @@ const Transactions = ({ transactions }) => {
     return (
       <div className="other">
         <div className="otherContents">
-          <img class="noTransactionsVector" src={noTransactions} alt="" />
+          <img className="noTransactionsVector" src={noTransactions} alt="" />
           <div>
-            <p class="noTransactions">NO TRANSACTIONS</p>
+            <p className="noTransactions">NO TRANSACTIONS</p>
           </div>
           <div>
-            <p class="noTransactionsDescription">
+            <p className="noTransactionsDescription">
               You do not have any transactions yet. Click on the “Add
               Transactions” button to start tracking your budget.
             </p>

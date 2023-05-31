@@ -4,7 +4,6 @@ import { store } from "../../../scripts/local-storage";
 import moment from "moment";
 import { useEffect, useState } from "react";
 import { Expense, Income } from "../../../constants/catagories";
-import Modal from "react-modal";
 
 const TransactionModal = ({ close }) => {
   const { register, handleSubmit, reset } = useForm();
@@ -17,6 +16,7 @@ const TransactionModal = ({ close }) => {
     description: "",
   });
 
+  console.log(formState);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormState({
@@ -44,9 +44,9 @@ const TransactionModal = ({ close }) => {
             <div className="modalBody">
               <form className="form">
                 <div className="formGroup">
-                  <div class="w-full">
+                  <div className="w-full">
                     <select
-                      class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded-md transition ease-in-out m-0 focus:outline-none input"
+                      className="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded-md transition ease-in-out m-0 focus:outline-none input"
                       {...register("transactionType")}
                       onClick={handleInputChange}
                       placeholder={formState.transactionType}
@@ -63,12 +63,12 @@ const TransactionModal = ({ close }) => {
                 </div>
                 <div className="formGroup">
                   <label>Category</label>
-                  <div class="flex justify-center">
-                    <div class="w-full">
+                  <div className="flex justify-center">
+                    <div className="w-full">
                       <select
-                        class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded-md  transition ease-in-out m-0 focus:outline-none input"
+                        className="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded-md  transition ease-in-out m-0 focus:outline-none input"
                         {...register("category")}
-                        onChange={handleInputChange}
+                        onClick={handleInputChange}
                         disabled={formState.transactionType === null}
                       >
                         {formState.transactionType === "Income"
@@ -96,7 +96,7 @@ const TransactionModal = ({ close }) => {
                 <div className="formGroup">
                   <label>Date</label>
                   <input
-                    className="w-full rounded-md input uppercase focus:outline-none"
+                    className="w-full rounded-md input uppercase focus:outline-none mb-2.5"
                     type="date"
                     id="date"
                     value={formState.date}
@@ -109,7 +109,7 @@ const TransactionModal = ({ close }) => {
                 <div className="formGroup">
                   <label>Amount</label>
                   <input
-                    className="w-full rounded-md input focus:outline-none"
+                    className="w-full rounded-md input focus:outline-none mb-2.5"
                     type="number"
                     placeholder="PHP 0.00"
                     id="amount"

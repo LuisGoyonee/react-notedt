@@ -2,8 +2,8 @@ import "./App.css";
 import Sidebar from "./components/Sidebar/sidebar";
 import Topnav from "./components/Topnav/topnav";
 import Overview from "./pages/Overview/overview";
-import Transactions from "./pages/Transactions/transactions";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Transactions from "./pages/Transactions/transactions.tsx";
+import { Routes, Route } from "react-router-dom";
 import TransactionModal from "./components/Modal/TransactionModal/transaction-modal";
 import { useState } from "react";
 import Footer from "./components/Footer/footer";
@@ -17,6 +17,7 @@ function App() {
   const [transactionsPage, setTransactionsPage] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+
   const searchHandler = (searchTerm) => {
     setSearchTerm(searchTerm);
     if (searchTerm !== "") {
@@ -31,9 +32,8 @@ function App() {
       setSearchResults(transactions);
     }
   };
-  console.log(transactions);
   return (
-    <Router>
+    <>
       {openTransactionModal && (
         <TransactionModal close={setOpenTransactionModal} />
       )}
@@ -50,6 +50,7 @@ function App() {
             setOpenTransactionModal={setOpenTransactionModal}
             setOpenFilterModal={setOpenFilterModal}
             transactionsPage={transactionsPage}
+            setTransactionsPage={setTransactionsPage}
             searchKeyword={searchHandler}
             term={searchTerm}
           />
@@ -71,7 +72,7 @@ function App() {
           <Footer />
         </div>
       </div>
-    </Router>
+    </>
   );
 }
 
