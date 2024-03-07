@@ -1,25 +1,26 @@
-.transactionContainer {
-    background-color: #FFFF;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
+.transaction__wrapper {
+  background-color: #FFFF;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
 }
 
-.header{
+.transaction__header {
   font-weight: 600;
   font-size: 18px;
   color:#454545;
   padding: 20px 16px;
+  text-transform: uppercase;
 }
 
-.transactionItemsContainer {
+.transaction-item__wrapper {
   background-color: rgba(250, 250, 250, 1);
   width: auto;
   padding: 20px;
   border-radius: 5px;
 }
 
-.transactionItem {
+.transaction__item {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -29,36 +30,47 @@
   border-bottom: 1px solid rgba(246, 246, 246, 1);
 }
 
-.leftSideContainer{
+.transaction__details {
   width: 30%;
 }
-.pair{
+
+.transaction-item__date {
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.transaction__type {
   display: flex;
   flex-direction: row;
   align-items: center;
   text-align: center;
   width: 100%;
 }
-.transaction-item-description{
+
+.transaction-item__icon {
+  margin-right: 5px;
+}
+
+.transaction-item__category {
+  margin-top: 1px;
+}
+
+.transaction-item__description {
   font-style: normal;
   font-weight: 300;
   font-size: 15px;
   color: #9EA7AA;
 }
-.transaction-item-icon{
-  margin-right: 5px;
-}
 
-.transaction-item-category{
-  margin-top: 1px;
-}
-
-.expense{
+.transaction__expense {
+  font-size: 1.125rem; 
+  line-height: 1.75rem;
+  font-weight: 400;
   color: #760000;
-  
 }
 
-.income{
+.income {
   color: #00766C;
 }
 

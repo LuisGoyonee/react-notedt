@@ -19,45 +19,52 @@ const Transactions: FC<TransactionProps> = ({ transactions }) => {
     return (
       <>
         {transactions.length > 0 ? (
-          <div className="transactionContainer">
-            <div className="header uppercase">Transaction details</div>
-            <div className="transactionItemsContainer">
+          <div className="transaction__wrapper">
+            <div className="transaction__header">Transaction details</div>
+            <div className="transaction-item__wrapper">
               {transactions.map((item, index) => {
-                const { date, amount, description, category, transactionType } =
-                  item;
+                const { 
+                  date,
+                  amount,
+                  description,
+                  category,
+                  transactionType
+                } = item;
                 return (
-                  <div className="transactionItem" key={index}>
-                    <div className="leftSideContainer">
-                      <div className="transaction-item-date font-normal text-xl">
+                  <div 
+                    className="transaction__item" 
+                    key={index}
+                  >
+                    <div className="transaction__details">
+                      <div className="transaction-item__date">
                         {moment(date).format("D dddd, MMMM  Y")}
                       </div>
-                      <div className="pair">
+                      <div className="transaction__type">
                         <IconContext.Provider
                           value={{
                             color:
                               transactionType === "Income"
                                 ? "#00766C"
                                 : "#760000",
-                            className:
-                              "global-class-name transaction-item-icon",
+                            className:"transaction-item__icon",
                           }}
                         >
                           <div>
                             <BsCircleFill />
                           </div>
                         </IconContext.Provider>
-                        <div className="transaction-item-category">
+                        <div className="transaction-item__category">
                           {category}
                         </div>
                       </div>
 
-                      <div className="transaction-item-description ">
+                      <div className="transaction-item__description ">
                         {description}
                       </div>
                     </div>
-                    <div className="rightSideContainer">
+                    <div className="transaction-amount__wrapper">
                       {transactionType === "Expense" ? (
-                        <div className="expense text-lg font-normal">
+                        <div className="transaction__expense">
                           {"- " + amount}
                         </div>
                       ) : (

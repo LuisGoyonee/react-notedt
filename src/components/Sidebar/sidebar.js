@@ -26,7 +26,7 @@ const Sidebar = ({ transactionsPage, setTransactionsPage }) => {
                 className="pt-8 navLink"
                 to={pathName}
                 key={tabName}
-                activeClassName="active"
+                activeclassname="active"
                 onClick={() => {
                   if (tabName === "Overview") {
                     setTransactionsPage(false);
